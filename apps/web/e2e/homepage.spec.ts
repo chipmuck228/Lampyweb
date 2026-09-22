@@ -123,11 +123,15 @@ test.describe("Lampy homepage locales", () => {
   test("does not name cities in the family section", async ({ page }) => {
     await page.goto("/zh-cn");
     await expect(page.locator("#family")).toContainText("晚饭后 · 留下一段声音");
+    await expect(
+      page.getByRole("group", { name: /一段生活先被留下/ }),
+    ).toBeVisible();
     await expect(page.locator("body")).not.toContainText("杭州");
     await expect(page.locator("body")).not.toContainText("温哥华");
 
     await page.goto("/en");
-    await expect(page.locator("#family")).toContainText("After dinner · a voice is kept");
+    await expect(page.locator("#family")).toContainText("After dinner · a familiar voice");
+    await expect(page.getByRole("group", { name: /familiar voice is left after dinner/i })).toBeVisible();
     await expect(page.locator("body")).not.toContainText("Hangzhou");
     await expect(page.locator("body")).not.toContainText("Vancouver");
   });

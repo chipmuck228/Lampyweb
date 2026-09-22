@@ -75,14 +75,14 @@ export const enHomepage: HomepageContent = {
   },
   family: {
     title: "Some moments are only for the people who matter.",
-    body: "Keep some entries for yourself. Share a few with your family when you want. Lampy is not a public feed.",
-    fromLead: "A moment kept",
-    from: "After dinner · a voice is kept",
+    body: "Keep some entries to yourself. A private family space is being prepared for the moments you choose to share.",
+    fromLead: "A moment left behind",
+    from: "After dinner · a familiar voice",
     toLead: "Heard again later",
-    to: "Some later day · heard again with family",
+    to: "Someday · heard again with family",
     relationAria:
-      "A moment kept for later, then heard again with family. This is not a delivery status.",
-    status: "A private family space is being prepared",
+      "A familiar voice is left after dinner and heard again with family someday. This is not a delivery status.",
+    status: "Private family sharing is being prepared",
   },
   voice: {
     title: "Hear a moment, and the room comes back.",

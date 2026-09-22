@@ -18,7 +18,11 @@ export function FamilyBoundary({ content }: FamilyBoundaryProps) {
           {content.title}
         </h2>
         <p className={`${styles.body} prose`}>{content.body}</p>
-        <div className={styles.relation} aria-label={content.relationAria}>
+        <div
+          className={styles.relation}
+          role="group"
+          aria-label={content.relationAria}
+        >
           <div className={styles.moment}>
             {content.fromLead ? <p className={styles.lead}>{content.fromLead}</p> : null}
             <p className={styles.phrase}>{content.from}</p>

@@ -1,5 +1,6 @@
-import { render } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it } from "vitest";
+import "@testing-library/jest-dom/vitest";
 import { HomePage } from "@/components/home-page";
 import { getHomepageContent } from "@/i18n/get-content";
 import { getDownloadLinksFromProcessEnv } from "@/lib/download-links";
@@ -12,6 +13,29 @@ function renderHome(locale: "en" | "zh-CN") {
 }
 
 describe("homepage semantics", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("exposes the family relation as a named group", () => {
+    renderHome("zh-CN");
+    expect(
+      screen.getByRole("group", {
+        name: /一段生活先被留下/,
+      }),
+    ).toBeInTheDocument();
+
+    cleanup();
+
+    renderHome("en");
+    expect(
+      screen.getByRole("group", {
+        name: /familiar voice is left after dinner/i,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/Share a few with your family when you want/)).toBeNull();
+  });
+
   it("renders a single h1 and the required sections for Chinese", () => {
     const { container } = renderHome("zh-CN");
 
