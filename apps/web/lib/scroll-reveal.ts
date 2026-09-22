@@ -17,7 +17,6 @@ function markRevealed(element: HTMLElement) {
 
   element.dataset.revealReady = "true";
   element.dataset.revealed = "true";
-  element.style.removeProperty("will-change");
 }
 
 function markWaiting(element: HTMLElement) {
@@ -27,7 +26,6 @@ function markWaiting(element: HTMLElement) {
 
   element.dataset.revealReady = "true";
   element.dataset.revealed = "false";
-  element.style.willChange = "opacity, transform";
 }
 
 export function prefersReducedMotion(): boolean {
