@@ -43,6 +43,8 @@ describe("homepage semantics", () => {
     expect(text).not.toContain("即将开放");
     expect(text).not.toContain("正在准备");
     expect(text).not.toContain("不表演、不评价");
+    expect(text).not.toContain("杭州");
+    expect(text).not.toContain("温哥华");
   });
 
   it("does not leave key English body copy on the Chinese homepage", () => {
@@ -50,10 +52,44 @@ describe("homepage semantics", () => {
     const text = container.textContent ?? "";
 
     expect(text).not.toContain("A quiet place for the life you don’t post");
+    expect(text).not.toContain("Coming soon");
     expect(text).not.toContain("Coming to iOS");
     expect(text).not.toContain("Coming to Android");
     expect(text).not.toContain("Made for ordinary life");
     expect(text).not.toContain("Why Lampy");
+    expect(text).not.toContain("Hangzhou");
+    expect(text).not.toContain("Vancouver");
+  });
+
+  it("keeps Family, Voice, Principles, and Download titles queryable", () => {
+    const zh = renderHome("zh-CN").container;
+    const en = renderHome("en").container;
+
+    expect(zh.querySelector("#family-title")?.textContent).toBe(
+      "有些生活，只想交给重要的人。",
+    );
+    expect(zh.querySelector("#voice-title")?.textContent).toBe(
+      "留下今天，以后还能听见。",
+    );
+    expect(zh.querySelector("#principles-title")?.textContent).toBe(
+      "Lampy 对普通生活的四个承诺",
+    );
+    expect(zh.querySelector("#download-title")?.textContent).toBe(
+      "想起什么的时候，再回来就好。",
+    );
+
+    expect(en.querySelector("#family-title")?.textContent).toBe(
+      "Some moments are only for the people who matter.",
+    );
+    expect(en.querySelector("#voice-title")?.textContent).toBe(
+      "Hear a moment, and the room comes back.",
+    );
+    expect(en.querySelector("#principles-title")?.textContent).toBe(
+      "Made for ordinary life.",
+    );
+    expect(en.querySelector("#download-title")?.textContent).toBe(
+      "Keep today. Come back when it becomes yesterday.",
+    );
   });
 
   it("does not expose placeholder store URLs and shows pending download status", () => {

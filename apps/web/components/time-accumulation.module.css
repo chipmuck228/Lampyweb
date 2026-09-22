@@ -1,5 +1,5 @@
 .section {
-  padding: clamp(4rem, 10vw, 9rem) 0;
+  padding: clamp(3.75rem, 8.5vw, 8.25rem) 0;
   background: var(--paper-deep);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .body {
-  margin: 1.35rem 0 3rem;
+  margin: 1.25rem 0 2.4rem;
 }
 
 .layers {

@@ -17,8 +17,10 @@ export const zhCNHomepage: HomepageContent = {
     skipLabel: "跳到主要内容",
     sectionsAria: "页面章节",
     noscriptAria: "无脚本导航",
-    menuOpen: "打开菜单",
-    menuClose: "关闭菜单",
+    menuOpen: "菜单",
+    menuClose: "关闭",
+    menuOpenAria: "打开导航菜单",
+    menuCloseAria: "关闭导航菜单",
     mobileNavAria: "移动端章节",
     items: [
       { href: "#why-lampy", label: "为什么是 Lampy" },
@@ -45,7 +47,7 @@ export const zhCNHomepage: HomepageContent = {
     caption: "不用发布，也可以留下。",
   },
   manifesto: {
-    contrast: "社交平台帮助人分享生活，Lampy 帮助人留住生活。",
+    contrast: ["有些生活适合分享。", "也有些，只想留给自己和重要的人。"],
     title: "不是每一张照片，都需要发出去。",
     body: "厨房里随口说的一句话，下班路上普通的天色，吃饭时一张有点模糊的照片。它们可能不适合发布，却可能值得留下。",
     scale: ["今天", "这一周", "这一年", "以后"],
@@ -70,10 +72,13 @@ export const zhCNHomepage: HomepageContent = {
   },
   family: {
     title: "有些生活，只想交给重要的人。",
-    body: "Lampy 所设想的家庭空间，小而私密，通过邀请加入。个人记录不会因为加入家庭而自动公开，也没有关注、热度和陌生人推荐。",
-    from: "杭州 · 晚饭后的一段声音",
-    to: "温哥华 · 清晨重新听见",
-    relationAria: "家庭距离示意",
+    body: "有些记录只留给自己。有些，以后想和家里人一起再听一遍。它不会变成公开的地方，也没有关注和热度。",
+    fromLead: "过去留下的一段生活",
+    from: "晚饭后 · 留下一段声音",
+    toLead: "以后由家人重新听见",
+    to: "以后某天 · 和家人重新听见",
+    relationAria:
+      "一段生活先被留下，以后可以在家庭里重新听见。这不是发送或送达状态。",
     status: "私密家庭空间正在准备中",
   },
   voice: {
@@ -83,13 +88,13 @@ export const zhCNHomepage: HomepageContent = {
     time: "00:18",
   },
   principles: {
-    title: "不表演、不评价、不催促、不伪造",
+    title: "Lampy 对普通生活的四个承诺",
     titleVisible: false,
     items: [
-      { title: "不表演", body: "不用让生活看起来精彩。" },
-      { title: "不评价", body: "没有点赞、热度和积极率。" },
-      { title: "不催促", body: "想起什么的时候再回来。" },
-      { title: "不伪造", body: "发生时间和分享状态保持诚实。" },
+      { title: "不必表演", body: "不用让生活看起来精彩。" },
+      { title: "不替你定义", body: "没有点赞、热度，也不判断什么更有意义。" },
+      { title: "不催你记录", body: "想起什么的时候再回来。" },
+      { title: "不替你编造", body: "文字、照片和声音仍然来自真实的生活。" },
     ],
   },
   downloads: {

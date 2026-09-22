@@ -1,6 +1,11 @@
 .section {
-  padding: clamp(5rem, 12vw, 10.5rem) 0;
+  padding: clamp(3.5rem, 8vw, 7.25rem) 0;
   background: var(--paper-deep);
+}
+
+.layout {
+  display: grid;
+  gap: 2rem;
 }
 
 .title {
@@ -13,7 +18,7 @@
 }
 
 .body {
-  margin: 1.5rem 0 3.25rem;
+  margin: 1.2rem 0 0;
 }
 
 .cue {
@@ -33,7 +38,7 @@
 }
 
 .line {
-  width: min(100%, 34rem);
+  width: min(100%, 48rem);
   height: auto;
   flex: 1 1 auto;
 }
@@ -42,4 +47,30 @@
   flex: 0 0 auto;
   font-size: 1rem;
   font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 768px) {
+  .copy {
+    max-width: 34em;
+  }
+
+  .cue {
+    margin-left: 10%;
+    width: 90%;
+  }
+
+  .line {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .copy {
+    max-width: 32em;
+  }
+
+  .cue {
+    margin-left: 18%;
+    width: 82%;
+  }
 }

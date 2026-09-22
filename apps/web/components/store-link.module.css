@@ -10,11 +10,7 @@
   padding: 0.35rem 0 0.55rem;
   color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid var(--ink);
-}
-
-a.item:hover .label {
-  color: var(--ink);
+  border-bottom: 1px dotted var(--line);
 }
 
 .label {
@@ -27,6 +23,38 @@ a.item:hover .label {
   font-size: var(--type-small);
 }
 
+.item[data-live="false"] {
+  cursor: default;
+}
+
 a.item {
-  border-bottom-color: currentColor;
+  border-bottom-style: solid;
+  border-bottom-color: var(--ink);
+}
+
+a.item:hover {
+  border-bottom-color: var(--ink);
+}
+
+a.item:hover .label {
+  color: var(--ink);
+}
+
+a.item:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+a.item:active {
+  opacity: 0.72;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a.item:hover {
+    transform: translateY(-1px);
+  }
+
+  a.item:active {
+    transform: none;
+  }
 }

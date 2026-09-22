@@ -114,6 +114,10 @@ button {
   letter-spacing: 0.01em;
 }
 
+main > section[id] {
+  scroll-margin-top: calc(var(--header-height) + 0.75rem);
+}
+
 .prose {
   max-width: var(--measure);
   color: var(--ink);

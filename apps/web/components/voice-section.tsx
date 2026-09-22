@@ -13,23 +13,25 @@ export function VoiceSection({ content }: VoiceSectionProps) {
       className={`${styles.section} section-enter`}
       aria-labelledby="voice-title"
     >
-      <div className="page-shell">
-        <h2 id="voice-title" className={`section-heading ${styles.title}`}>
-          {content.title}
-        </h2>
-        <p className={`${styles.body} prose`}>{content.body}</p>
+      <div className={`page-shell ${styles.layout}`}>
+        <div className={styles.copy}>
+          <h2 id="voice-title" className={`section-heading ${styles.title}`}>
+            {content.title}
+          </h2>
+          <p className={`${styles.body} prose`}>{content.body}</p>
+        </div>
         <div className={styles.cue} aria-label={content.cueAria}>
           <span className={styles.dot} aria-hidden="true" />
           <svg
             className={styles.line}
-            viewBox="0 0 480 36"
-            width="480"
-            height="36"
+            viewBox="0 0 720 40"
+            width="720"
+            height="40"
             aria-hidden="true"
             focusable="false"
           >
             <path
-              d="M2 20h28l10-8 12 14 14-18 16 16 20-10 18 8 22-14 18 12 24-6 20 10 28-16 22 12 26-8 20 14 32-12 24 6 28-10 22 12 18-6"
+              d="M2 22h36l12-9 14 16 16-20 18 18 24-12 20 9 26-16 22 14 28-7 24 11 32-18 26 14 30-9 24 16 36-14 28 7 32-12 26 14 22-7 28 10"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"

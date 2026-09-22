@@ -16,6 +16,8 @@ type MobileNavigationProps = {
   download: StoreLinkModel;
   menuOpen: string;
   menuClose: string;
+  menuOpenAria: string;
+  menuCloseAria: string;
   ariaLabel: string;
 };
 
@@ -24,6 +26,8 @@ export function MobileNavigation({
   download,
   menuOpen,
   menuClose,
+  menuOpenAria,
+  menuCloseAria,
   ariaLabel,
 }: MobileNavigationProps) {
   const [open, setOpen] = useState(false);
@@ -121,6 +125,7 @@ export function MobileNavigation({
         className={styles.toggle}
         aria-expanded={open}
         aria-controls={menuId}
+        aria-label={open ? menuCloseAria : menuOpenAria}
         onClick={() => setOpen((current) => !current)}
       >
         {open ? menuClose : menuOpen}

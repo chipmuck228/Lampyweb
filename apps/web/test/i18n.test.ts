@@ -78,7 +78,8 @@ describe("localized download copy", () => {
 
     expect(targets.iosHref).toBeNull();
     expect(english.ios.href).toBe(chinese.ios.href);
-    expect(english.ios.label).toBe("Coming to iOS");
+    expect(english.ios.label).toBe("iOS");
+    expect(english.ios.statusLabel).toBe("Coming soon");
     expect(chinese.ios.label).toBe("iOS");
     expect(chinese.ios.statusLabel).toBe("即将开放");
   });

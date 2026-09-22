@@ -26,10 +26,8 @@ export function ProductPrinciples({ content }: ProductPrinciplesProps) {
               <span className={styles.index} aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
             </li>
           ))}
         </ol>

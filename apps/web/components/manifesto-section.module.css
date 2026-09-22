@@ -1,5 +1,5 @@
 .section {
-  padding: clamp(4rem, 10vw, 9rem) 0;
+  padding: clamp(3.25rem, 7.5vw, 7rem) 0;
 }
 
 .eyebrow {
@@ -10,7 +10,9 @@
 }
 
 .contrast {
-  margin: 0 0 clamp(4rem, 9vw, 8rem);
+  display: grid;
+  gap: 0.35em;
+  margin: 0 0 clamp(2.15rem, 5vw, 4.25rem);
   max-width: 14em;
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.4vw, 3.15rem);
@@ -32,7 +34,7 @@
 }
 
 .body {
-  margin: 1.4rem 0 3rem;
+  margin: 1.25rem 0 2.4rem;
 }
 
 .scale {

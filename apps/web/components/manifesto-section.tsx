@@ -6,7 +6,17 @@ type ManifestoSectionProps = {
   content: HomepageContent["manifesto"];
 };
 
+function contrastLines(contrast: HomepageContent["manifesto"]["contrast"]) {
+  if (!contrast) {
+    return [];
+  }
+
+  return Array.isArray(contrast) ? contrast : [contrast];
+}
+
 export function ManifestoSection({ content }: ManifestoSectionProps) {
+  const lines = contrastLines(content.contrast);
+
   return (
     <section
       id={SECTION_IDS.why}
@@ -15,7 +25,13 @@ export function ManifestoSection({ content }: ManifestoSectionProps) {
     >
       <div className="page-shell">
         {content.eyebrow ? <p className={styles.eyebrow}>{content.eyebrow}</p> : null}
-        {content.contrast ? <p className={styles.contrast}>{content.contrast}</p> : null}
+        {lines.length > 0 ? (
+          <p className={styles.contrast}>
+            {lines.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </p>
+        ) : null}
         <h2 id="manifesto-title" className={`section-heading ${styles.title}`}>
           {content.title}
         </h2>

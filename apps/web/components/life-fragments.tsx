@@ -23,18 +23,31 @@ export function LifeFragments({ content }: LifeFragmentsProps) {
           focusable="false"
         >
           <rect width="420" height="300" fill="#e4dccf" />
-          <rect x="0" y="0" width="420" height="188" fill="#9aa48d" />
-          <rect x="0" y="0" width="420" height="78" fill="#7f8b7a" />
-          <path d="M0 188h420" stroke="#d8d0c3" strokeWidth="14" />
-          <rect x="286" y="0" width="52" height="188" fill="#d7cebf" opacity="0.72" />
-          <rect x="38" y="214" width="86" height="10" fill="#cfc6b6" />
-          <ellipse cx="68" cy="228" rx="18" ry="7" fill="#c3b8a6" />
-          <rect x="58" y="204" width="20" height="26" fill="#b7ab97" />
+          <rect x="0" y="0" width="420" height="188" fill="#8f9a84" />
+          <rect x="0" y="0" width="420" height="72" fill="#6f7b6b" />
+          <rect x="24" y="18" width="372" height="154" fill="#96a28c" />
+          <rect x="24" y="18" width="372" height="46" fill="#7d8974" />
+          <path d="M210 18v154" stroke="#d7cebf" strokeWidth="6" />
+          <path d="M24 95h372" stroke="#d7cebf" strokeWidth="5" />
+          <rect x="292" y="18" width="44" height="154" fill="#d4cbbd" opacity="0.62" />
+          <path d="M0 188h420" stroke="#d8d0c3" strokeWidth="16" />
+          <rect x="0" y="196" width="420" height="104" fill="#e8e1d5" />
+          <rect x="28" y="228" width="164" height="8" fill="#cfc6b6" />
+          <rect x="48" y="214" width="22" height="28" fill="#b7ab97" />
           <path
-            d="M28 168c36-16 68-8 98 6 34 16 66 8 96-10 28-16 64-14 92 6"
+            d="M42 226c0-10 8-16 16-16s16 6 16 16"
+            fill="none"
+            stroke="#a89b86"
+            strokeWidth="3"
+          />
+          <ellipse cx="64" cy="244" rx="16" ry="6" fill="#c3b8a6" />
+          <ellipse cx="118" cy="236" rx="22" ry="8" fill="#cfc6b6" />
+          <rect x="104" y="228" width="28" height="6" fill="#b7ab97" />
+          <path
+            d="M36 164c32-12 62-6 90 6 30 14 58 8 86-8 26-14 58-12 84 6"
             fill="none"
             stroke="#d8d1c4"
-            strokeWidth="1.6"
+            strokeWidth="1.5"
           />
         </svg>
       </div>

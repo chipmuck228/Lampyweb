@@ -53,6 +53,8 @@ export function SiteHeader({ locale, content, downloads }: SiteHeaderProps) {
             download={downloads.ios}
             menuOpen={content.menuOpen}
             menuClose={content.menuClose}
+            menuOpenAria={content.menuOpenAria}
+            menuCloseAria={content.menuCloseAria}
             ariaLabel={content.mobileNavAria}
           />
         </div>

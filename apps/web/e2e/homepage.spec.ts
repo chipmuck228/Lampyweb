@@ -87,19 +87,66 @@ test.describe("Lampy homepage locales", () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/zh-cn");
 
-    const toggle = page.getByRole("button", { name: /菜单/ });
+    const toggle = page.getByRole("button", { name: /导航菜单/ });
+    await expect(toggle).toHaveText("菜单");
+    await expect(toggle).toHaveAccessibleName("打开导航菜单");
     await expect(toggle).toHaveCSS("min-height", "44px");
     await toggle.click();
     await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(toggle).toHaveAccessibleName("关闭导航菜单");
+    await expect(toggle).toHaveText("关闭");
     await expect(page.getByRole("navigation", { name: "移动端章节" })).toBeVisible();
 
     await page.getByRole("navigation", { name: "移动端章节" }).getByRole("link", {
       name: "时间",
     }).click();
-    await expect(page.getByRole("button", { name: /菜单/ })).toHaveAttribute(
-      "aria-expanded",
-      "false",
-    );
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(toggle).toHaveAccessibleName("打开导航菜单");
+  });
+
+  test("returns focus to the menu button after Escape", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/en");
+
+    const toggle = page.getByRole("button", { name: /navigation menu/i });
+    await expect(toggle).toHaveText("Menu");
+    await expect(toggle).toHaveAccessibleName("Open navigation menu");
+    await toggle.click();
+    await expect(toggle).toHaveAccessibleName("Close navigation menu");
+    await expect(toggle).toHaveText("Close");
+    await page.keyboard.press("Escape");
+    await expect(toggle).toBeFocused();
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(toggle).toHaveAccessibleName("Open navigation menu");
+  });
+
+  test("does not name cities in the family section", async ({ page }) => {
+    await page.goto("/zh-cn");
+    await expect(page.locator("#family")).toContainText("晚饭后 · 留下一段声音");
+    await expect(page.locator("body")).not.toContainText("杭州");
+    await expect(page.locator("body")).not.toContainText("温哥华");
+
+    await page.goto("/en");
+    await expect(page.locator("#family")).toContainText("After dinner · a voice is kept");
+    await expect(page.locator("body")).not.toContainText("Hangzhou");
+    await expect(page.locator("body")).not.toContainText("Vancouver");
+  });
+
+  test("keeps later section titles queryable", async ({ page }) => {
+    await page.goto("/zh-cn");
+    await expect(
+      page.getByRole("heading", { name: "有些生活，只想交给重要的人。" }),
+    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "留下今天，以后还能听见。" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "想起什么的时候，再回来就好。" }),
+    ).toBeVisible();
+
+    await page.goto("/en");
+    await expect(
+      page.getByRole("heading", { name: "Hear a moment, and the room comes back." }),
+    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Made for ordinary life." })).toBeVisible();
   });
 
   test("switches language on a phone-sized viewport", async ({ page }) => {
@@ -193,21 +240,28 @@ test.describe("Lampy homepage locales", () => {
     await page.goto("/en");
     await expect(page.locator("h1")).toBeVisible();
     await page.screenshot({
-      path: "artifacts/home-en-mobile-390.png",
-      fullPage: true,
-    });
-
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/en");
-    await page.screenshot({
-      path: "artifacts/home-en-desktop-1440.png",
+      path: "artifacts/refinement-en-mobile-390.png",
       fullPage: true,
     });
 
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/zh-cn");
     await page.screenshot({
-      path: "artifacts/home-zh-mobile-390.png",
+      path: "artifacts/refinement-zh-mobile-390.png",
+      fullPage: true,
+    });
+
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto("/en");
+    await page.screenshot({
+      path: "artifacts/refinement-en-tablet-768.png",
+      fullPage: true,
+    });
+
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/zh-cn");
+    await page.screenshot({
+      path: "artifacts/refinement-zh-desktop-1440.png",
       fullPage: true,
     });
   });

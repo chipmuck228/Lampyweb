@@ -5,11 +5,25 @@
 .toggle {
   min-height: 2.75rem;
   min-width: 2.75rem;
-  padding: 0 0.85rem;
-  border: 1px solid var(--line);
+  padding: 0 0.35rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
   background: transparent;
   color: var(--ink);
   font-size: var(--type-nav);
+  letter-spacing: 0.04em;
+}
+
+.toggle:hover {
+  border-bottom-color: var(--ink);
+}
+
+.toggle:active {
+  opacity: 0.7;
+}
+
+.toggle[aria-expanded="true"] {
+  border-bottom-color: var(--ink);
 }
 
 .panel {

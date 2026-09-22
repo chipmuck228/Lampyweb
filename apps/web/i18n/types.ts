@@ -19,6 +19,8 @@ export type HomepageContent = {
     noscriptAria: string;
     menuOpen: string;
     menuClose: string;
+    menuOpenAria: string;
+    menuCloseAria: string;
     mobileNavAria: string;
     items: readonly { href: string; label: string }[];
   };
@@ -38,7 +40,7 @@ export type HomepageContent = {
   };
   manifesto: {
     eyebrow?: string;
-    contrast?: string;
+    contrast?: string | readonly string[];
     title: string;
     body: string;
     scale: readonly string[];
@@ -65,7 +67,9 @@ export type HomepageContent = {
   family: {
     title: string;
     body: string;
+    fromLead?: string;
     from: string;
+    toLead?: string;
     to: string;
     relationAria: string;
     status: string;

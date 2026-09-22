@@ -1,5 +1,5 @@
 .section {
-  padding: clamp(5.5rem, 13vw, 11rem) 0 clamp(4.5rem, 11vw, 9rem);
+  padding: clamp(3.15rem, 6.5vw, 6.25rem) 0 clamp(2.75rem, 5.5vw, 5rem);
 }
 
 .title {
@@ -12,6 +12,16 @@
 }
 
 .body {
-  margin: 1.5rem 0 2.5rem;
+  margin: 1.25rem 0 1.85rem;
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+}
+
+.platforms {
+  padding-top: 0.35rem;
+}
+
+.platforms[data-state="pending"] {
+  border-top: 1px solid var(--line);
+  padding-top: 1.35rem;
+  max-width: 28rem;
 }

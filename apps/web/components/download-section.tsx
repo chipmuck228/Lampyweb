@@ -23,7 +23,12 @@ export function DownloadSection({ content, downloads }: DownloadSectionProps) {
         <p className={`${styles.body} prose`}>
           {downloads.isLive ? content.bodyLive : content.body}
         </p>
-        <DownloadActions downloads={downloads} />
+        <div
+          className={styles.platforms}
+          data-state={downloads.isLive ? "live" : "pending"}
+        >
+          <DownloadActions downloads={downloads} />
+        </div>
       </div>
     </section>
   );
