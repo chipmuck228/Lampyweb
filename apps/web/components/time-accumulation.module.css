@@ -1,0 +1,105 @@
+.section {
+  padding: clamp(4rem, 10vw, 9rem) 0;
+  background: var(--paper-deep);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: var(--type-small);
+  letter-spacing: 0.08em;
+}
+
+.title {
+  max-width: 12em;
+  text-wrap: balance;
+}
+
+:global([data-locale="en"]) .title {
+  max-width: 14em;
+}
+
+.body {
+  margin: 1.35rem 0 3rem;
+}
+
+.layers {
+  display: grid;
+  gap: 2.75rem;
+}
+
+.label {
+  margin: 0 0 0.85rem;
+  color: var(--ink-soft);
+  font-size: var(--type-small);
+  letter-spacing: 0.14em;
+}
+
+.year,
+.month {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.year {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.year li {
+  height: 0.85rem;
+  background: color-mix(in srgb, var(--sage) 16%, var(--paper));
+}
+
+.year li[data-filled="true"] {
+  background: color-mix(in srgb, var(--sage) 48%, var(--paper));
+}
+
+.month {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.month li {
+  padding: 0.85rem 0;
+  color: var(--ink-soft);
+  font-size: var(--type-small);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.month li[data-filled="true"] {
+  color: var(--ink);
+  font-size: 1rem;
+  border-bottom-color: var(--ink);
+}
+
+.day {
+  margin: 0;
+  max-width: 16em;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  line-height: 1.45;
+}
+
+.day p:last-child {
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .layers {
+    grid-template-columns: 1.15fr 0.9fr 0.85fr;
+    align-items: end;
+  }
+}
+
+@media (max-width: 639px) {
+  .month {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .year li {
+    height: 0.7rem;
+  }
+}

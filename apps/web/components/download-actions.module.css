@@ -1,0 +1,5 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.25rem;
+}

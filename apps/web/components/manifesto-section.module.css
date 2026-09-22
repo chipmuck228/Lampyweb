@@ -1,0 +1,55 @@
+.section {
+  padding: clamp(4rem, 10vw, 9rem) 0;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  font-size: var(--type-small);
+  letter-spacing: 0.08em;
+}
+
+.contrast {
+  margin: 0 0 clamp(4rem, 9vw, 8rem);
+  max-width: 14em;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.4vw, 3.15rem);
+  line-height: 1.32;
+  color: var(--ink);
+}
+
+.title {
+  max-width: 11em;
+  text-wrap: balance;
+}
+
+:global([data-locale="en"]) .title {
+  max-width: 16em;
+}
+
+:global([data-locale="en"]) .contrast {
+  max-width: 18em;
+}
+
+.body {
+  margin: 1.4rem 0 3rem;
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0;
+  padding: 1rem 0 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--type-small);
+}
+
+@media (max-width: 639px) {
+  .scale {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0.9rem;
+  }
+}

@@ -1,0 +1,45 @@
+.section {
+  padding: clamp(5rem, 12vw, 10.5rem) 0;
+  background: var(--paper-deep);
+}
+
+.title {
+  max-width: 10em;
+  text-wrap: balance;
+}
+
+:global([data-locale="en"]) .title {
+  max-width: 16em;
+}
+
+.body {
+  margin: 1.5rem 0 3.25rem;
+}
+
+.cue {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  color: var(--sound);
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.line {
+  width: min(100%, 34rem);
+  height: auto;
+  flex: 1 1 auto;
+}
+
+.time {
+  flex: 0 0 auto;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}

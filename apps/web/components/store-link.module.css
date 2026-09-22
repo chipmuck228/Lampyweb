@@ -1,0 +1,32 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  margin: 0;
+  min-width: min(8.5rem, 100%);
+  max-width: 16rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+}
+
+a.item:hover .label {
+  color: var(--ink);
+}
+
+.label {
+  font-size: var(--type-nav);
+  letter-spacing: 0.04em;
+}
+
+.status {
+  color: var(--ink-soft);
+  font-size: var(--type-small);
+}
+
+a.item {
+  border-bottom-color: currentColor;
+}

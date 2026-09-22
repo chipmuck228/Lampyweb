@@ -1,0 +1,17 @@
+.section {
+  padding: clamp(5.5rem, 13vw, 11rem) 0 clamp(4.5rem, 11vw, 9rem);
+}
+
+.title {
+  max-width: 11em;
+  text-wrap: balance;
+}
+
+:global([data-locale="en"]) .title {
+  max-width: 16em;
+}
+
+.body {
+  margin: 1.5rem 0 2.5rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+}
