@@ -9,7 +9,9 @@
 ```bash
 cd apps/web
 npm install
-npm run dev
+npm run dev -- -H 127.0.0.1 -p 3200
 ```
 
-浏览器打开 http://localhost:3000。完整说明见 [apps/web/README.md](apps/web/README.md)。
+或在仓库根目录执行 `npm run dev`。浏览器打开 http://127.0.0.1:3200。完整说明见 [apps/web/README.md](apps/web/README.md)。
+
+Vercel 部署以仓库根目录的 `vercel.json` 为准：安装并构建 `apps/web`，发布静态目录 `apps/web/out`。如果在控制台把 Root Directory 设成了 `apps/web`，同样会发布 `out/`，不要用默认的 Next.js Serverless 输出。

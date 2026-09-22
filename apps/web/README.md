@@ -25,11 +25,13 @@ cp .env.example .env.local
 
 ## 本地启动
 
+本机 3000 端口常被其他项目占用。请指定 3200：
+
 ```bash
-npm run dev
+npm run dev -- -H 127.0.0.1 -p 3200
 ```
 
-浏览器打开 [http://localhost:3000](http://localhost:3000)。
+浏览器打开 [http://127.0.0.1:3200](http://127.0.0.1:3200)。仓库根目录的 `npm run dev` 会执行同一条命令。
 
 ## 测试
 
@@ -88,7 +90,21 @@ npm start
 
 ## 部署说明
 
-站点使用 `output: "export"`，可部署到任何静态托管：
+站点使用 `output: "export"`，可部署到任何静态托管。
+
+### Vercel
+
+仓库根目录的 `vercel.json` 会：
+
+1. 在 `apps/web` 安装依赖并构建；
+2. 发布 `apps/web/out`；
+3. 开启 `cleanUrls`，让 `/en` 和 `/zh-cn` 对应导出的 HTML。
+
+在 Vercel 项目里把 Root Directory 留在仓库根，或设为 `apps/web` 并使用该目录下的 `vercel.json`。不要按默认 Next.js Serverless 输出部署，否则会出现平台级 “This page doesn’t exist”。
+
+生产环境请设置 `NEXT_PUBLIC_SITE_URL` 为正式域名。
+
+### 其他静态托管
 
 1. 设置生产环境的 `NEXT_PUBLIC_SITE_URL`。
 2. 运行 `npm run build`。

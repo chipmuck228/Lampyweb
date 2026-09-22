@@ -41,7 +41,21 @@ function walk(dir, lang) {
   }
 }
 
+function ensureLocaleIndex(folder, lang) {
+  const htmlFile = path.join(outDir, `${folder}.html`);
+  const indexFile = path.join(outDir, folder, "index.html");
+
+  if (!fs.existsSync(htmlFile)) {
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(indexFile), { recursive: true });
+  fs.copyFileSync(htmlFile, indexFile);
+  patchHtml(htmlFile, lang);
+  patchHtml(indexFile, lang);
+}
+
 for (const [folder, lang] of LOCALES) {
-  patchHtml(path.join(outDir, `${folder}.html`), lang);
+  ensureLocaleIndex(folder, lang);
   walk(path.join(outDir, folder), lang);
 }

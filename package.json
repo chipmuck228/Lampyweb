@@ -1,0 +1,9 @@
+{
+  "name": "lampyweb",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix apps/web -- -H 127.0.0.1 -p 3200",
+    "build": "npm run build --prefix apps/web",
+    "start": "npm run start --prefix apps/web -- -l 3200"
+  }
+}
