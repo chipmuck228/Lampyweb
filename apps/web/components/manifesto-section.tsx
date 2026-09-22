@@ -20,7 +20,9 @@ export function ManifestoSection({ content }: ManifestoSectionProps) {
   return (
     <section
       id={SECTION_IDS.why}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="manifesto"
       aria-labelledby="manifesto-title"
     >
       <div className="page-shell">

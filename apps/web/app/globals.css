@@ -23,6 +23,9 @@
   --header-height: 5rem;
   --duration: 260ms;
   --rise: 8px;
+  --reveal-duration: 460ms;
+  --reveal-distance: 8px;
+  --reveal-easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -138,17 +141,47 @@ main > section[id] {
   }
 }
 
+[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal][data-reveal-ready="true"][data-revealed="false"] {
+  opacity: 0.8;
+  transform: translateY(var(--reveal-distance));
+}
+
+[data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--reveal-duration) var(--reveal-easing),
+    transform var(--reveal-duration) var(--reveal-easing);
+}
+
+[data-reveal-kind="voice"][data-reveal-ready="true"][data-revealed="false"] {
+  opacity: 0.84;
+}
+
+[data-reveal-kind="download"][data-reveal-ready="true"][data-revealed="false"] {
+  opacity: 0.9;
+  transform: none;
+}
+
+[data-reveal-kind="download"][data-revealed="true"] {
+  transition: opacity 380ms var(--reveal-easing);
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .hero-enter,
-  .section-enter {
-    animation: rise-in var(--duration) ease-out both;
+  .hero-enter {
+    animation: hero-rise 300ms ease-out both;
   }
 }
 
-@keyframes rise-in {
+@keyframes hero-rise {
   from {
-    opacity: 0;
-    transform: translateY(var(--rise));
+    opacity: 0.92;
+    transform: translateY(5px);
   }
 
   to {
@@ -159,8 +192,13 @@ main > section[id] {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-enter,
-  .section-enter {
+  [data-reveal],
+  [data-reveal][data-reveal-ready="true"][data-revealed="false"],
+  [data-reveal][data-revealed="true"] {
     animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

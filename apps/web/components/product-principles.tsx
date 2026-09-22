@@ -10,7 +10,9 @@ export function ProductPrinciples({ content }: ProductPrinciplesProps) {
   return (
     <section
       id={SECTION_IDS.principles}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="principles"
       aria-labelledby="principles-title"
     >
       <div className="page-shell">

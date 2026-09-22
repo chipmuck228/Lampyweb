@@ -51,6 +51,25 @@
   width: 1px;
   height: 2.15rem;
   background: var(--ink);
+  transform: none;
+  transform-origin: top center;
+}
+
+:global([data-reveal][data-reveal-ready="true"][data-revealed="false"]) .spanLine {
+  transform: scaleY(0.01);
+}
+
+:global([data-reveal][data-revealed="true"]) .spanLine {
+  transform: none;
+  transition: transform 380ms var(--reveal-easing);
+  transition-delay: 60ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spanLine {
+    transform: none;
+    transition: none;
+  }
 }
 
 .status {
@@ -75,5 +94,10 @@
   .spanLine {
     width: 3.25rem;
     height: 1px;
+    transform-origin: left center;
+  }
+
+  :global([data-reveal][data-reveal-ready="true"][data-revealed="false"]) .spanLine {
+    transform: scaleX(0.01);
   }
 }

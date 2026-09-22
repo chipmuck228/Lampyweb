@@ -28,6 +28,34 @@
   gap: 2.75rem;
 }
 
+.layers > * {
+  transform: none;
+}
+
+:global([data-reveal][data-reveal-ready="true"][data-revealed="false"]) .layers > * {
+  transform: translateY(6px);
+}
+
+:global([data-reveal][data-revealed="true"]) .layers > * {
+  transform: none;
+  transition: transform var(--reveal-duration) var(--reveal-easing);
+}
+
+:global([data-reveal][data-revealed="true"]) .layers > *:nth-child(2) {
+  transition-delay: 60ms;
+}
+
+:global([data-reveal][data-revealed="true"]) .layers > *:nth-child(3) {
+  transition-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layers > * {
+    transform: none;
+    transition: none;
+  }
+}
+
 .label {
   margin: 0 0 0.85rem;
   color: var(--ink-soft);

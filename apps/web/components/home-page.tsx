@@ -6,6 +6,7 @@ import { FamilyBoundary } from "@/components/family-boundary";
 import { Hero } from "@/components/hero";
 import { ManifestoSection } from "@/components/manifesto-section";
 import { ProductPrinciples } from "@/components/product-principles";
+import { ScrollRevealController } from "@/components/scroll-reveal-controller";
 import { TimeAccumulation } from "@/components/time-accumulation";
 import { VoiceSection } from "@/components/voice-section";
 
@@ -17,6 +18,7 @@ type HomePageProps = {
 export function HomePage({ content, downloads }: HomePageProps) {
   return (
     <main id="main">
+      <ScrollRevealController />
       <Hero
         content={content.hero}
         fragments={content.lifeFragments}

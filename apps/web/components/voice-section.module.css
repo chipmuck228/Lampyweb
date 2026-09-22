@@ -41,6 +41,24 @@
   width: min(100%, 48rem);
   height: auto;
   flex: 1 1 auto;
+  opacity: 1;
+}
+
+:global([data-reveal][data-reveal-ready="true"][data-revealed="false"]) .line {
+  opacity: 0.96;
+}
+
+:global([data-reveal][data-revealed="true"]) .line {
+  opacity: 1;
+  transition: opacity var(--reveal-duration) var(--reveal-easing);
+  transition-delay: 75ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    opacity: 1;
+    transition: none;
+  }
 }
 
 .time {

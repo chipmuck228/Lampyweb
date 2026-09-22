@@ -10,7 +10,9 @@ export function FamilyBoundary({ content }: FamilyBoundaryProps) {
   return (
     <section
       id={SECTION_IDS.family}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="family"
       aria-labelledby="family-title"
     >
       <div className="page-shell">

@@ -61,6 +61,38 @@
   height: auto;
 }
 
+.frames,
+.wave {
+  transform: none;
+}
+
+:global([data-reveal][data-reveal-ready="true"][data-revealed="false"]) .frames,
+:global([data-reveal][data-reveal-ready="true"][data-revealed="false"]) .wave {
+  transform: translateY(6px);
+}
+
+:global([data-reveal][data-revealed="true"]) .frames,
+:global([data-reveal][data-revealed="true"]) .wave {
+  transform: none;
+  transition: transform var(--reveal-duration) var(--reveal-easing);
+}
+
+:global([data-reveal][data-revealed="true"]) .frames {
+  transition-delay: 70ms;
+}
+
+:global([data-reveal][data-revealed="true"]) .wave {
+  transition-delay: 90ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frames,
+  .wave {
+    transform: none;
+    transition: none;
+  }
+}
+
 .wave {
   margin-top: 1.4rem;
   height: 2px;

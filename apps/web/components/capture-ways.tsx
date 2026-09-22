@@ -10,7 +10,9 @@ export function CaptureWays({ content }: CaptureWaysProps) {
   return (
     <section
       id={SECTION_IDS.capture}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="capture"
       aria-labelledby="capture-title"
     >
       <div className="page-shell">

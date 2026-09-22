@@ -216,15 +216,108 @@ test.describe("Lampy homepage locales", () => {
     }
   });
 
+  test("keeps the hero readable on first paint", async ({ page }) => {
+    for (const path of ["/en", "/zh-cn"]) {
+      await page.goto(path);
+      const hero = page.locator("h1");
+      await expect(hero).toBeVisible();
+      const opacity = await hero.evaluate((node) => Number(getComputedStyle(node).opacity));
+      expect(opacity, `${path} hero faded`).toBeGreaterThanOrEqual(0.9);
+      await expect(page.getByText(/iOS/i).first()).toBeVisible();
+    }
+  });
+
+  test("reveals a below-the-fold section once and keeps it shown", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/zh-cn");
+
+    const family = page.locator("#family");
+    await expect(family).toHaveAttribute("data-reveal-ready", "true");
+    await expect(family).toHaveAttribute("data-revealed", "false");
+
+    await family.scrollIntoViewIfNeeded();
+    await expect(family).toHaveAttribute("data-revealed", "true");
+
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(family).toHaveAttribute("data-revealed", "true");
+
+    await family.scrollIntoViewIfNeeded();
+    await expect(family).toHaveAttribute("data-revealed", "true");
+  });
+
   test("disables entrance motion when reduce motion is requested", async ({
     page,
   }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/en");
-    const animation = await page.locator("h1").evaluate((node) => {
+    const heroAnimation = await page.locator("h1").evaluate((node) => {
       return getComputedStyle(node.closest("section") ?? node).animationName;
     });
-    expect(animation === "none" || animation === "").toBeTruthy();
+    expect(heroAnimation === "none" || heroAnimation === "").toBeTruthy();
+    await expect(page.locator('[data-revealed="false"]')).toHaveCount(0);
+    const familyMotion = await page.locator("#family").evaluate((node) => {
+      const style = getComputedStyle(node);
+      return {
+        opacity: Number(style.opacity),
+        duration: style.transitionDuration,
+      };
+    });
+    expect(familyMotion.opacity).toBeGreaterThanOrEqual(0.99);
+    expect(familyMotion.duration === "0s" || familyMotion.duration === "").toBeTruthy();
+  });
+
+  test("shows Family immediately when opened from a hash", async ({ page }) => {
+    await page.goto("/zh-cn#family");
+    await expect(page.locator("#family")).toHaveAttribute("data-revealed", "true");
+    await expect(page.locator("#family-title")).toBeInViewport();
+  });
+
+  test("does not leave an anchored header target waiting", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/zh-cn");
+    await page.getByRole("navigation", { name: "页面章节" }).getByRole("link", {
+      name: "家庭",
+    }).click();
+    await expect(page).toHaveURL(/#family/);
+    await expect(page.locator("#family")).toHaveAttribute("data-revealed", "true");
+    await expect(page.locator("#family-title")).toBeInViewport();
+  });
+
+  test("captures reveal review screenshots", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/zh-cn");
+    await expect(page.locator("h1")).toBeVisible();
+    await expect(page.locator("#family")).toHaveAttribute("data-revealed", "false");
+    await page.screenshot({
+      path: "artifacts/reveal-zh-before-scroll-390.png",
+      fullPage: false,
+    });
+
+    await page.locator("#family").scrollIntoViewIfNeeded();
+    await expect(page.locator("#family")).toHaveAttribute("data-revealed", "true");
+    await page.screenshot({
+      path: "artifacts/reveal-zh-family-390.png",
+      fullPage: false,
+    });
+
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto("/en");
+    await page.locator("#time").scrollIntoViewIfNeeded();
+    await expect(page.locator("#time")).toHaveAttribute("data-revealed", "true");
+    await page.screenshot({
+      path: "artifacts/reveal-en-time-768.png",
+      fullPage: false,
+    });
+
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/en");
+    await expect(page.locator("h1")).toBeVisible();
+    await page.screenshot({
+      path: "artifacts/reveal-en-desktop-1440.png",
+      fullPage: true,
+    });
   });
 
   test("has independent metadata for each language", async ({ page }) => {
@@ -268,5 +361,32 @@ test.describe("Lampy homepage locales", () => {
       path: "artifacts/refinement-zh-desktop-1440.png",
       fullPage: true,
     });
+  });
+});
+
+test.describe("Lampy homepage without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("keeps static locale pages readable", async ({ page }) => {
+    await page.goto("/zh-cn");
+    await expect(page.locator("h1")).toHaveText("这里，留下自己的生活。");
+    await expect(page.locator("#why-lampy")).toBeVisible();
+    await expect(page.locator("#family")).toBeVisible();
+    await expect(page.locator("#download")).toBeVisible();
+
+    const hidden = await page.evaluate(() => {
+      return [...document.querySelectorAll("h1, #why-lampy, #family, #download")].some(
+        (node) => Number(getComputedStyle(node).opacity) === 0,
+      );
+    });
+    expect(hidden).toBe(false);
+    await expect(page.locator("#family")).not.toHaveAttribute("data-revealed", "false");
+
+    await page.goto("/en");
+    await expect(page.locator("h1")).toHaveText(
+      "A quiet place for the life you don’t post.",
+    );
+    await page.locator('a[href="/zh-cn"]').first().click();
+    await expect(page).toHaveURL(/\/zh-cn\/?/);
   });
 });

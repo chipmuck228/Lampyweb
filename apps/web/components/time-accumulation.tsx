@@ -20,7 +20,9 @@ export function TimeAccumulation({ content }: TimeAccumulationProps) {
   return (
     <section
       id={SECTION_IDS.time}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="time"
       aria-labelledby="time-title"
     >
       <div className="page-shell">

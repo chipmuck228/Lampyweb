@@ -10,7 +10,9 @@ export function VoiceSection({ content }: VoiceSectionProps) {
   return (
     <section
       id={SECTION_IDS.voice}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="voice"
       aria-labelledby="voice-title"
     >
       <div className={`page-shell ${styles.layout}`}>

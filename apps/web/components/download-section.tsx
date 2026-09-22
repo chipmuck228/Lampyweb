@@ -13,7 +13,9 @@ export function DownloadSection({ content, downloads }: DownloadSectionProps) {
   return (
     <section
       id={SECTION_IDS.download}
-      className={`${styles.section} section-enter`}
+      className={styles.section}
+      data-reveal
+      data-reveal-kind="download"
       aria-labelledby="download-title"
     >
       <div className="page-shell">
