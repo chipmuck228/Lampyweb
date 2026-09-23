@@ -67,7 +67,7 @@ export const zhCNHomepage: HomepageContent = {
   },
   time: {
     title: "生活不是信息流，它会慢慢积累。",
-    body: "从最近的一天，到一个月和一年。Lampy 不替你挑选“最好”的内容，只帮助你回到那个时候。",
+    body: "有些当时觉得微不足道的小事，在几年后的某个下午，会变成支撑你走下去的微光。",
     yearLabel: "年",
     monthLabel: "月",
     dayLabel: "日",
@@ -75,7 +75,7 @@ export const zhCNHomepage: HomepageContent = {
   },
   family: {
     title: "有些生活，只想交给重要的人。",
-    body: "有些记录只留给自己。有些，以后想和家里人一起再听一遍。它不会变成公开的地方，也没有关注和热度。",
+    body: "不用发在朋友圈让所有人看到，只把那句温暖的碎碎念或晚饭后的笑声，留给最在意你的人。",
     sceneAlt: "晚饭后，两个人坐在桌边说话。",
     fromLead: "过去留下的一段生活",
     from: "晚饭后 · 留下一段声音",

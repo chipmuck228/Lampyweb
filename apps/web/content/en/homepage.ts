@@ -70,7 +70,7 @@ export const enHomepage: HomepageContent = {
   time: {
     eyebrow: "Day by day",
     title: "A life takes shape quietly.",
-    body: "Some days leave a lot. Some leave almost nothing. Over time, the small pieces begin to show how life actually felt.",
+    body: "A small thing that felt like nothing at the time can, on some afternoon years later, become the quiet light that helps you keep going.",
     yearLabel: "Year",
     monthLabel: "Month",
     dayLabel: "Day",
@@ -78,7 +78,7 @@ export const enHomepage: HomepageContent = {
   },
   family: {
     title: "Some moments are only for the people who matter.",
-    body: "Keep some entries to yourself. A private family space is being prepared for the moments you choose to share.",
+    body: "You don’t have to post it for everyone. Keep the warm aside, or the laugh after dinner, for the people who care most about you.",
     sceneAlt: "Two people talking at a table after a meal.",
     fromLead: "A moment left behind",
     from: "After dinner · a familiar voice",
