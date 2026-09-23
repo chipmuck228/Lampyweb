@@ -46,19 +46,18 @@
   margin: 0;
 }
 
-.frames {
-  display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.7fr) minmax(0, 0.9fr);
-  align-items: end;
-  gap: 0.85rem;
-  margin-top: 1.5rem;
-}
-
-.wide,
-.tall,
-.square {
+.still,
+.frames img {
   width: 100%;
   height: auto;
+  margin-top: 1.5rem;
+  aspect-ratio: 1024 / 686;
+  object-fit: cover;
+  background: var(--paper-deep);
+}
+
+.frames {
+  margin-top: 0;
 }
 
 .frames,
@@ -99,13 +98,13 @@
   background:
     linear-gradient(
       90deg,
-      var(--sound) 0 14%,
+      var(--sound-ink) 0 14%,
       transparent 14% 20%,
-      var(--sound) 20% 46%,
+      var(--sound-ink) 20% 46%,
       transparent 46% 52%,
-      var(--sound) 52% 78%,
+      var(--sound-ink) 52% 78%,
       transparent 78% 84%,
-      var(--sound) 84% 100%
+      var(--sound-ink) 84% 100%
     );
 }
 

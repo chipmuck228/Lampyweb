@@ -33,11 +33,12 @@ a.item {
 }
 
 a.item:hover {
-  border-bottom-color: var(--ink);
+  border-bottom-color: var(--clay-ink);
 }
 
-a.item:hover .label {
-  color: var(--ink);
+a.item:hover .label,
+a.item:focus-visible .label {
+  color: var(--clay-ink);
 }
 
 a.item:focus-visible {

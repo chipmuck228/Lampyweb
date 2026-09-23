@@ -20,6 +20,15 @@ export function FamilyBoundary({ content }: FamilyBoundaryProps) {
           {content.title}
         </h2>
         <p className={`${styles.body} prose`}>{content.body}</p>
+        <img
+          className={styles.scene}
+          src="/scenes/family-table.jpg"
+          alt={content.sceneAlt}
+          width={1024}
+          height={686}
+          decoding="async"
+          loading="lazy"
+        />
         <div
           className={styles.relation}
           role="group"

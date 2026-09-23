@@ -12,7 +12,18 @@
 }
 
 .body {
-  margin: 1.2rem 0 2.15rem;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.scene {
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  height: auto;
+  margin: 0 0 2rem;
+  aspect-ratio: 1024 / 686;
+  object-fit: cover;
+  background: var(--paper-deep);
 }
 
 .relation {
@@ -29,7 +40,7 @@
 
 .lead {
   margin: 0 0 0.45rem;
-  color: var(--ink-soft);
+  color: var(--sage-ink);
   font-size: var(--type-small);
   letter-spacing: 0.06em;
 }
@@ -50,7 +61,7 @@
   display: block;
   width: 1px;
   height: 2.15rem;
-  background: var(--ink);
+  background: var(--sage-ink);
   transform: none;
   transform-origin: top center;
 }
@@ -79,6 +90,10 @@
 }
 
 @media (min-width: 768px) {
+  .scene {
+    max-width: 46rem;
+  }
+
   .relation {
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: start;

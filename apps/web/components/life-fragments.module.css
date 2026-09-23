@@ -22,9 +22,11 @@
   background: var(--paper-deep);
 }
 
-.scene svg {
+.scene img {
   width: 100%;
   height: auto;
+  aspect-ratio: 1024 / 686;
+  object-fit: cover;
 }
 
 .sound {
@@ -32,14 +34,14 @@
   align-items: center;
   gap: 0.75rem;
   margin: 0;
-  color: var(--sound);
+  color: var(--sound-ink);
   font-size: var(--type-small);
 }
 
 .soundMark {
   width: 4.5rem;
   height: 2px;
-  background: var(--sound);
+  background: var(--sound-ink);
 }
 
 .caption {

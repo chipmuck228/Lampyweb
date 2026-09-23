@@ -35,6 +35,7 @@ export type HomepageContent = {
     weekday: string;
     dateTime: string;
     note: string;
+    sceneAlt: string;
     sound: string;
     caption: string;
   };
@@ -50,8 +51,10 @@ export type HomepageContent = {
     intro: string;
     writeTitle: string;
     writeBody: string;
+    writeImageAlt: string;
     photoTitle: string;
     photoBody: string;
+    photoImageAlt: string;
     voiceTitle: string;
     voiceBody: string;
   };
@@ -67,6 +70,7 @@ export type HomepageContent = {
   family: {
     title: string;
     body: string;
+    sceneAlt: string;
     fromLead?: string;
     from: string;
     toLead?: string;

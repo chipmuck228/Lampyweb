@@ -36,6 +36,36 @@ describe("homepage semantics", () => {
     expect(screen.queryByText(/Share a few with your family when you want/)).toBeNull();
   });
 
+  it("places editorial scene photos instead of svg placeholders", () => {
+    const { container } = renderHome("zh-CN");
+    const images = [...container.querySelectorAll("img")].map((img) => ({
+      src: img.getAttribute("src"),
+      alt: img.getAttribute("alt"),
+    }));
+
+    expect(images).toEqual(
+      expect.arrayContaining([
+        {
+          src: "/scenes/evening-window.jpg",
+          alt: "窗边的一杯水，窗外下着雨。",
+        },
+        {
+          src: "/scenes/open-notebook.jpg",
+          alt: "桌上打开的空白笔记本和一支钢笔。",
+        },
+        {
+          src: "/scenes/cup-and-phone.jpg",
+          alt: "桌上的杯子和手机。",
+        },
+        {
+          src: "/scenes/family-table.jpg",
+          alt: "晚饭后，两个人坐在桌边说话。",
+        },
+      ]),
+    );
+    expect(container.querySelector("#capture svg")).toBeNull();
+  });
+
   it("renders a single h1 and the required sections for Chinese", () => {
     const { container } = renderHome("zh-CN");
 

@@ -43,6 +43,7 @@ export const enHomepage: HomepageContent = {
     weekday: "Monday",
     dateTime: "2026-09-21",
     note: "After dinner, a little wind at the window.",
+    sceneAlt: "A cup by a rainy window.",
     sound: "A voice note 00:18",
     caption: "It can stay, even if it is never posted.",
   },
@@ -58,8 +59,10 @@ export const enHomepage: HomepageContent = {
       "A Lampy entry can be as small as one sentence. Add up to three photos or a voice note when they carry more of the moment.",
     writeTitle: "A few words",
     writeBody: "For what you noticed, felt, or simply don’t want to lose.",
+    writeImageAlt: "An open notebook and a pen on a table.",
     photoTitle: "A photo",
     photoBody: "Not for a feed—just the view you want to remember.",
+    photoImageAlt: "A cup and a phone on a table.",
     voiceTitle: "A voice",
     voiceBody:
       "A laugh, a room, the rain outside, or someone telling a familiar story.",
@@ -76,6 +79,7 @@ export const enHomepage: HomepageContent = {
   family: {
     title: "Some moments are only for the people who matter.",
     body: "Keep some entries to yourself. A private family space is being prepared for the moments you choose to share.",
+    sceneAlt: "Two people talking at a table after a meal.",
     fromLead: "A moment left behind",
     from: "After dinner · a familiar voice",
     toLead: "Heard again later",

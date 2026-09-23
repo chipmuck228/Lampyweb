@@ -5,7 +5,7 @@
 
 .eyebrow {
   margin: 0 0 1rem;
-  color: var(--ink-soft);
+  color: var(--sage-ink);
   font-size: var(--type-small);
   letter-spacing: 0.08em;
 }
@@ -58,7 +58,7 @@
 
 .label {
   margin: 0 0 0.85rem;
-  color: var(--ink-soft);
+  color: var(--sage-ink);
   font-size: var(--type-small);
   letter-spacing: 0.14em;
 }
@@ -78,11 +78,11 @@
 
 .year li {
   height: 0.85rem;
-  background: color-mix(in srgb, var(--sage) 16%, var(--paper));
+  background: color-mix(in srgb, var(--sage-ink) 16%, var(--paper));
 }
 
 .year li[data-filled="true"] {
-  background: color-mix(in srgb, var(--sage) 48%, var(--paper));
+  background: color-mix(in srgb, var(--sage-ink) 48%, var(--paper));
 }
 
 .month {
@@ -91,16 +91,16 @@
 
 .month li {
   padding: 0.85rem 0;
-  color: var(--ink-soft);
+  color: var(--sage-ink);
   font-size: var(--type-small);
   text-align: center;
   border-bottom: 1px solid var(--line);
 }
 
 .month li[data-filled="true"] {
-  color: var(--ink);
+  color: var(--sage-ink);
   font-size: 1rem;
-  border-bottom-color: var(--ink);
+  border-bottom-color: var(--sage-ink);
 }
 
 .day {
