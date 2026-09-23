@@ -54,18 +54,18 @@ export const enHomepage: HomepageContent = {
     scale: ["Today", "This week", "This year", "Later"],
   },
   capture: {
-    title: "Write a little. Take a photo. Leave a sound.",
+    title: "Quiet pieces of a quiet life.",
     intro:
-      "A Lampy entry can be as small as one sentence. Add up to three photos or a voice note when they carry more of the moment.",
+      "Whether it’s just a line scribbled down, a fleeting view, or the sound of rain, it’s worth keeping if it helps you remember how life truly felt.",
     writeTitle: "A few words",
-    writeBody: "For what you noticed, felt, or simply don’t want to lose.",
+    writeBody: "A few words for the thoughts that don’t need an audience—just a home.",
     writeImageAlt: "An open notebook and a pen on a table.",
     photoTitle: "A photo",
-    photoBody: "Not for a feed—just the view you want to remember.",
+    photoBody: "Not for a like, but for a look back.",
     photoImageAlt: "A cup and a phone on a table.",
     voiceTitle: "A voice",
     voiceBody:
-      "A laugh, a room, the rain outside, or someone telling a familiar story.",
+      "A laugh, a room, the rain outside—the atmosphere of a moment that photos can’t capture.",
   },
   time: {
     eyebrow: "Day by day",
