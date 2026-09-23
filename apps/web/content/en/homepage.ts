@@ -90,7 +90,7 @@ export const enHomepage: HomepageContent = {
   },
   voice: {
     title: "Hear a moment, and the room comes back.",
-    body: "A voice note can hold what a photo cannot—the pace of a voice, a familiar sound, the space around you.",
+    body: "A hometown voice, laughter at the table, even rain that has been gone too long—all worth keeping. You don’t need a reason; just press record in an ordinary moment. A familiar aside, an open laugh: years later, they are gifts time left for you. Whoever records it, or only sits nearby and listens, the elder remains the storyteller being heard with care.",
     cueAria: "A visual suggestion of a voice note",
     time: "00:18",
   },
