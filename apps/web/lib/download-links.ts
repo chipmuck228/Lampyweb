@@ -1,9 +1,10 @@
+import { lampyOpenUrl } from "@/lib/app-open";
 import { getHomepageContent } from "@/i18n/get-content";
 import {
   DEFAULT_ANDROID_APP_URL,
   DEFAULT_IOS_APP_URL,
 } from "@/lib/site-config";
-import type { HomepageContent } from "@/i18n/types";
+import type { HomepageContent, SupportedLocale } from "@/i18n/types";
 
 export type StoreLinks = {
   ios: string;
@@ -19,6 +20,7 @@ export type StoreLinkModel = {
   statusLabel: string | null;
   isLive: boolean;
   rel: "noopener noreferrer";
+  target?: "_self" | "_blank";
 };
 
 export type DownloadLinks = {
@@ -107,8 +109,14 @@ export function resolveDownloadLinks(
 export function getDownloadLinksFromProcessEnv(
   copy: HomepageContent["downloads"] = getHomepageContent("zh-CN").downloads,
   env: NodeJS.ProcessEnv = process.env,
+  locale: SupportedLocale = "zh-CN",
 ): DownloadLinks {
-  return localizeDownloadLinks(getStoreTargetsFromProcessEnv(env), copy);
+  const links = localizeDownloadLinks(getStoreTargetsFromProcessEnv(env), copy);
+  return {
+    ...links,
+    isLive: true,
+    ios: { ...links.ios, href: lampyOpenUrl(locale), label: copy.iosOpen, statusLabel: null, isLive: true, target: "_self" },
+  };
 }
 
 export function usesPlaceholderUrl(href: string | null): boolean {

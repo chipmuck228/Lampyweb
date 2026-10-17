@@ -146,7 +146,7 @@ describe("homepage semantics", () => {
     );
   });
 
-  it("does not expose placeholder store URLs and shows pending download status", () => {
+  it("offers iOS opening without exposing placeholders or enabling Android", () => {
     const { container } = renderHome("zh-CN");
     const namedLinks = [...container.querySelectorAll("a")].map((link) => ({
       href: link.getAttribute("href"),
@@ -154,9 +154,10 @@ describe("homepage semantics", () => {
     }));
 
     expect(container.innerHTML).not.toContain("example.com");
-    expect(container.querySelector("a[data-platform]")).toBeNull();
+    expect(container.querySelector('a[data-platform="ios"]')?.getAttribute("href")).toBe("https://open.yunpura.com/zh-cn/install");
+    expect(container.querySelector('a[data-platform="android"]')).toBeNull();
     expect(container.textContent).toMatch(/iOS/);
-    expect(container.textContent).toMatch(/即将开放/);
+    expect(container.textContent).toMatch(/打开 Lampy/);
     expect(container.textContent).toMatch(/Android/);
     expect(container.textContent).toMatch(/正在准备/);
     expect(container.textContent).not.toMatch(/立即下载/);
@@ -173,9 +174,9 @@ describe("homepage semantics", () => {
     expect(groups.length).toBeGreaterThanOrEqual(2);
     for (const group of groups) {
       expect(group.textContent).toContain(expected.ios.label);
-      expect(group.textContent).toContain(expected.ios.statusLabel);
+      if (expected.ios.statusLabel) expect(group.textContent).toContain(expected.ios.statusLabel);
       expect(group.textContent).toContain(expected.android.label);
-      expect(group.textContent).toContain(expected.android.statusLabel);
+      if (expected.android.statusLabel) expect(group.textContent).toContain(expected.android.statusLabel);
     }
   });
 });

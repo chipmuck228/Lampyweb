@@ -103,9 +103,10 @@ export const zhCNHomepage: HomepageContent = {
     ],
   },
   downloads: {
+    iosOpen: "打开 Lampy · iOS",
     title: "想起什么的时候，再回来就好。",
     body: "Lampy 正在准备 iOS 和 Android 版本。",
-    bodyLive: "可以从下面打开 iOS 或 Android 应用。",
+    bodyLive: "iOS 测试版通过 TestFlight 安装，Android 版本仍在准备中。",
     iosLive: "在 App Store 下载",
     androidLive: "下载 Android 应用",
     iosPending: "iOS",

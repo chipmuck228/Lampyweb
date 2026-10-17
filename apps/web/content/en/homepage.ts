@@ -117,9 +117,10 @@ export const enHomepage: HomepageContent = {
     ],
   },
   downloads: {
+    iosOpen: "Open Lampy · iOS",
     title: "Keep today. Come back when it becomes yesterday.",
     body: "Lampy is coming to iOS and Android.",
-    bodyLive: "Open Lampy on iOS or Android.",
+    bodyLive: "Try Lampy on iOS through TestFlight. Android is still in preparation.",
     iosLive: "Download for iOS",
     androidLive: "Get it for Android",
     iosPending: "iOS",

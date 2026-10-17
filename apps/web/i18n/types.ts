@@ -94,6 +94,7 @@ export type HomepageContent = {
     body: string;
     bodyLive: string;
     iosLive: string;
+    iosOpen: string;
     androidLive: string;
     iosPending: string;
     androidPending: string;
