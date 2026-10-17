@@ -10,7 +10,7 @@ export default async function LocaleHomePage({
 }) {
   const locale = await requireLocale(params);
   const content = getHomepageContent(locale);
-  const downloads = getDownloadLinksFromProcessEnv(content.downloads);
+  const downloads = getDownloadLinksFromProcessEnv(content.downloads, process.env, locale);
 
   return <HomePage content={content} downloads={downloads} />;
 }

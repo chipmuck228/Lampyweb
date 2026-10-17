@@ -187,14 +187,15 @@ test.describe("Lampy homepage locales", () => {
     await expect(page).toHaveURL(/\/zh-cn\/?$/);
   });
 
-  test("shows pending download status without placeholder store links", async ({
+  test("offers iOS opening while Android remains pending", async ({
     page,
   }) => {
     await page.goto("/zh-cn");
 
     await expect(page.locator('a[href*="example.com"]')).toHaveCount(0);
-    await expect(page.locator("a[data-platform]")).toHaveCount(0);
-    await expect(page.getByText("即将开放").first()).toBeVisible();
+    await expect(page.locator('a[data-platform="ios"]').first()).toHaveAttribute("href", "https://open.yunpura.com/zh-cn/install");
+    await expect(page.locator('a[data-platform="android"]')).toHaveCount(0);
+    await expect(page.getByText("打开 Lampy · iOS").first()).toBeVisible();
     await expect(page.getByText("正在准备").first()).toBeVisible();
     await expect(page.getByText("立即下载")).toHaveCount(0);
   });

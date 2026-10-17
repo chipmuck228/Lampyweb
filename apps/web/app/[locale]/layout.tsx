@@ -31,7 +31,7 @@ export default async function LocaleLayout({
 }>) {
   const locale = await requireLocale(params);
   const content = getHomepageContent(locale);
-  const downloads = getDownloadLinksFromProcessEnv(content.downloads);
+  const downloads = getDownloadLinksFromProcessEnv(content.downloads, process.env, locale);
 
   return (
     <div data-locale={locale} lang={HTML_LANG[locale]}>

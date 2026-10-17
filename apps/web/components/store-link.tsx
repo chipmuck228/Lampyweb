@@ -29,7 +29,7 @@ export function StoreLink({ link, className }: StoreLinkProps) {
       className={classes}
       href={link.href}
       rel={link.rel}
-      target="_blank"
+      target={link.target ?? "_blank"}
       data-live="true"
       data-platform={link.platform}
     >

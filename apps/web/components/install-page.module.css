@@ -1,0 +1,6 @@
+.page { max-width: 48rem; padding-block: clamp(3rem, 8vw, 7rem); }
+.kicker { color: var(--sage-ink); font-size: var(--type-small); letter-spacing: .12em; }
+.primary { display: inline-flex; align-items: center; min-height: 48px; margin-block: 1.5rem; padding: .75rem 1.5rem; border-radius: 999px; background: var(--sage-ink); color: var(--paper); text-decoration: none; }
+.steps { padding-left: 1.5rem; margin-block: 1.5rem 2rem; }
+.steps li { padding-block: .4rem; }
+.note { color: var(--ink-soft); font-size: var(--type-small); max-width: 42em; }
