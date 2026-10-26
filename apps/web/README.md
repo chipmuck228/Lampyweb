@@ -115,7 +115,7 @@ npm start
 ## 当前占位内容
 
 - iOS / Android 下载地址为 example.com 占位。
-- 隐私政策、服务条款、联系页为说明性占位页。
+- 隐私政策、服务条款和联系页按 Lampy 1.0.0 提供中英文分节说明；运营资料及生产部署仍需按 `spec/LEGAL-CONTENT-V1.md` 核对。
 - LifeFragments 使用本地 SVG 色面，不模拟真实 App。
 - Favicon、页眉和页脚使用正式 Lampy L 标记（深松绿 #40564A／暖米白 #F6F0E3）；OG 文件仍为独立旧占位资产，当前页面元数据未引用。
 - 家庭功能标注为“正在准备中”。
