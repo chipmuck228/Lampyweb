@@ -139,14 +139,14 @@ export const enHomepage: HomepageContent = {
       "This site describes the product direction. Features follow the released versions.",
   },
   legal: {
-    privacyTitle: "Privacy",
+    privacyTitle: "Privacy Policy",
     privacyBody:
-      "This is a placeholder. A full privacy notice will be published when the apps are released and the data practices are settled. This site does not collect accounts, load analytics SDKs, or accept uploads.",
-    termsTitle: "Terms",
+      "How Lampy 1.0.0 handles private records, family sharing, accounts, security and reports.",
+    termsTitle: "Terms of Service",
     termsBody:
-      "This is a placeholder. Terms will be provided with the released product. This site describes direction, not a promise of live features.",
-    contactTitle: "Contact",
+      "The scope of Lampy 1.0.0, family content rules, account controls and keeping your records.",
+    contactTitle: "Contact Lampy",
     contactBody:
-      "A public contact address has not been published yet. When it is, replace this page with that address. Do not add tracking scripts here.",
+      "For support, content reports, appeals and privacy requests: dev@yunpura.com.",
   },
 };

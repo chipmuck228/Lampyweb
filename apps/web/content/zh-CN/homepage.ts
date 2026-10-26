@@ -127,12 +127,12 @@ export const zhCNHomepage: HomepageContent = {
   legal: {
     privacyTitle: "隐私政策",
     privacyBody:
-      "这是占位页面。正式隐私政策将在应用发布与数据处理范围确定后更新。本网站目前不收集账号、不接入分析 SDK，也不处理用户上传内容。",
+      "说明 Lampy 1.0.0 如何处理私人记录、家庭分享、账号、安全和举报数据。",
     termsTitle: "服务条款",
     termsBody:
-      "这是占位页面。服务条款将在 Lampy 正式版本发布时提供。本网站只介绍产品方向，不构成已上线功能承诺。",
-    contactTitle: "联系",
+      "Lampy 1.0.0 的使用范围、家庭内容规则、账号操作与记录保管说明。",
+    contactTitle: "联系 Lampy",
     contactBody:
-      "联系方式尚未公布。如需更新此页，请替换为正式邮箱或表单，不要加入未经评审的第三方跟踪脚本。",
+      "功能帮助、家庭内容举报、申诉与隐私请求：dev@yunpura.com。",
   },
 };
