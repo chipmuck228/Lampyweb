@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     languages: languageAlternates(),
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/apple-touch-icon.svg",
+    icon: { url: "/icon.svg?v=lampy-l", type: "image/svg+xml" },
+    apple: { url: "/apple-touch-icon.png?v=lampy-l", sizes: "180x180", type: "image/png" },
   },
   manifest: "/manifest.webmanifest",
 };

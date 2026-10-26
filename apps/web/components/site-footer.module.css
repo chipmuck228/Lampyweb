@@ -11,6 +11,9 @@
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   margin: 0 0 0.65rem;
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -51,4 +54,11 @@
     flex-direction: row;
     gap: 0.85rem 1.75rem;
   }
+}
+
+.mark {
+  width: 1.4rem;
+  height: 1.75rem;
+  flex: 0 0 auto;
+  background: url("/logo-symbol.svg") center / contain no-repeat;
 }
