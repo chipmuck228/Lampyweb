@@ -14,6 +14,10 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ locale, content, downloads }: SiteHeaderProps) {
   const homeHref = localePath(locale);
+  const items = content.items.map((item) => ({
+    ...item,
+    href: item.href.startsWith("#") ? `${homeHref}${item.href}` : item.href,
+  }));
 
   return (
     <header className={styles.header} id="top">
@@ -23,7 +27,7 @@ export function SiteHeader({ locale, content, downloads }: SiteHeaderProps) {
           <span className={styles.wordmark}>{content.brandLabel}</span>
         </a>
         <nav className={styles.desktopNav} aria-label={content.sectionsAria}>
-          {content.items.map((item) => (
+          {items.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
             </a>
@@ -31,7 +35,7 @@ export function SiteHeader({ locale, content, downloads }: SiteHeaderProps) {
         </nav>
         <noscript>
           <nav className={styles.noscriptNav} aria-label={content.noscriptAria}>
-            {content.items.map((item) => (
+            {items.map((item) => (
               <a key={item.href} href={item.href}>
                 {item.label}
               </a>
@@ -49,7 +53,7 @@ export function SiteHeader({ locale, content, downloads }: SiteHeaderProps) {
             <StoreLink link={downloads.ios} className={styles.headerStatus} />
           </div>
           <MobileNavigation
-            items={content.items}
+            items={items}
             download={downloads.ios}
             menuOpen={content.menuOpen}
             menuClose={content.menuClose}
