@@ -82,7 +82,7 @@ npm start
 ## 替换 favicon / OG image
 
 - Favicon：`public/icon.svg`
-- Apple touch icon：`public/apple-touch-icon.svg`
+- Apple touch icon：`public/apple-touch-icon.png`（180×180；SVG 源图保留同名 `.svg`）
 - 分享图占位：`public/og.svg`
 - 构建时 Open Graph PNG：`app/opengraph-image.tsx`
 
@@ -117,7 +117,7 @@ npm start
 - iOS / Android 下载地址为 example.com 占位。
 - 隐私政策、服务条款、联系页为说明性占位页。
 - LifeFragments 使用本地 SVG 色面，不模拟真实 App。
-- Favicon / OG 为本地占位图形。
+- Favicon、页眉和页脚使用正式 Lampy L 标记（深松绿 #40564A／暖米白 #F6F0E3）；OG 文件仍为独立旧占位资产，当前页面元数据未引用。
 - 家庭功能标注为“正在准备中”。
 
 ## 已验证和未验证浏览器
@@ -125,3 +125,8 @@ npm start
 已通过自动化检查：Playwright Chromium、首页语义测试、生产构建。
 
 未人工验证：Safari、Firefox、真实 iOS/Android 浏览器、屏幕阅读器真机、生产域名下的分享卡片。
+
+
+### 正式 Logo（2026-10-26）
+
+与 iOS 正式图标保持同一组 L 路径和配色。`public/logo-symbol.svg` 为页眉／页脚透明标记，`public/icon.svg` 为完整方形图标，Apple 主屏幕使用不透明 PNG。图标链接附带版本参数以刷新旧缓存。中英文页面共用组件，无需分别维护。此次不更改下载链接、政策正文或域名关联文件。

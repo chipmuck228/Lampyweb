@@ -23,10 +23,10 @@
 }
 
 .mark {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: var(--sage);
+  width: 1.6rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  background: url("/logo-symbol.svg") center / contain no-repeat;
 }
 
 .wordmark {

@@ -15,7 +15,10 @@ export function SiteFooter({ locale, content }: SiteFooterProps) {
     <footer className={styles.footer}>
       <div className={`page-shell ${styles.grid}`}>
         <div>
-          <p className={styles.brand}>{content.brand}</p>
+          <p className={styles.brand}>
+            <span className={styles.mark} aria-hidden="true" />
+            {content.brand}
+          </p>
           <p className={styles.positioning}>{content.positioning}</p>
         </div>
         <nav aria-label={content.navAria}>
